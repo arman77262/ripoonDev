@@ -19,6 +19,8 @@
 
                             <input type="hidden" name="id" value="{{$allSliderImage->id}}">
 
+                            <input type="hidden" name="old_image" value="{{$allSliderImage->slider_image}}">
+
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image</label>
                                 <div class="col-sm-10">

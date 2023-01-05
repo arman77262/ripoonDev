@@ -51,6 +51,7 @@ class HomeSliderController extends Controller
     public function SliderImageUpdate(Request $request){
         $image_id = $request->id;
 
+        $old_image = $request->old_image;
         if ($request->file('slider_image')) {
 
             $image = $request->file('slider_image');
@@ -62,7 +63,7 @@ class HomeSliderController extends Controller
                 SliderMultiImage::findOrFail($image_id)->update([
                     'slider_image' => $save_url,
                 ]);
-
+                unlink($old_image);
             }
 
             $notification = array(
