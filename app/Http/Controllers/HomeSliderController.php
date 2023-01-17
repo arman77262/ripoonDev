@@ -73,6 +73,23 @@ class HomeSliderController extends Controller
 
             return redirect()->route('all.slider.image')->with($notification);
 
-    }
+    }//end method
+
+
+    public function SliderImageDelete($id){
+        $slider_images = SliderMultiImage::findOrFail($id);
+        $img = $slider_images->slider_image;
+        unlink($img);
+
+        SliderMultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Image Delete successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }//end method
 
 }

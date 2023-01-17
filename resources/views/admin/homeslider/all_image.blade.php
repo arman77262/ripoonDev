@@ -34,11 +34,12 @@
                                     <td>
                                         <a href="{{route('edit.slider.image',$item->id)}}" class="btn btn-sm btn-info" title="Edit Data"> <i class="fas fa-edit"></i> </a>
 
-                                        <a href="" class="btn btn-sm btn-danger" title="Delete Data"> <i class="fas fa-trash"></i> </a>
+                                        <a href="{{route('delete.slider.image',$item->id)}}" class="btn btn-sm btn-danger" title="Delete Data" id="delete"> <i class="fas fa-trash"></i> </a>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
+
                         </table>
 
                     </div>
