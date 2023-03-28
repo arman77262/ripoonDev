@@ -41,7 +41,7 @@
 
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$item->category_name}}</td>
+                                    <td>{{strtoupper($item->category_name)}}</td>
                                     <td><img src="{{asset($item->category_image)}}" alt=""></td>
                                     <td>Active</td>
 

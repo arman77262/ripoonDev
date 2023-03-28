@@ -3,7 +3,6 @@
 
 @php
     $categoires = App\Models\Categories::get();
-      $subcategoires = App\Models\Subcategory::get();
 @endphp
 <!-- home section start -->
 
@@ -13,80 +12,26 @@
 			<div class="left-col">
 				<h2 class="title">all brands</h2>
 				<div class="box">
-					<ul>
-						<li><a href="#"><img src="assets/images/side-1.webp" alt=""><p>OE BRANDS</p></a>
+                    @foreach ($categoires as $cat)
+                    <ul>
+                    <li><a href="product_page.html"><img src="{{$cat->category_image}}" alt=""><p>{{strtoupper($cat->category_name)}}</p></a>
 
-							<div class="sub-menu-1">
-								<ul>
-									<li><a href="product_page.html">BAJAJ</a></li>
-									<li><a href="product_page.html">TVS</a></li>
-									<li><a href="product_page.html">HERO</a></li>
-									<li><a href="product_page.html">HONDA</a></li>
-									<li><a href="product_page.html">SUZUKI</a></li>
-									<li><a href="product_page.html">YAHMAH</a></li>
-								</ul>
-							</div>
+                        @php
+                            $subcategoires = App\Models\Subcategory::where('cat_id', $cat->id)->get();
+                        @endphp
 
-						</li>
-					</ul>
+                    @foreach ($subcategoires as $subcat)
+                        <div class="sub-menu-1">
+                            <ul>
+                                <li><a href="product_page.html">{{strtoupper($subcat->subcat_name)}}</a></li>
+                            </ul>
+                        </div>
+                    @endforeach
 
-					<!-- <ul>
-						<li class="hover-me"><a href="#">oe brands</a><i class="fas fa-angle-right"></i>
+                </li>
+                </ul>
+                    @endforeach
 
-							<div class="sub-menu-2">
-								<ul>
-									<li><a href="">BAJAJ</a></li>
-									<li><a href="">TVS</a></li>
-									<li><a href="">HERO</a></li>
-									<li><a href="">HONDA</a></li>
-								</ul>
-							</div>
-
-						</li>
-					</ul> -->
-
-					{{-- <a href="product_page.html"><img src="assets/images/icon/varroc.png" alt="">
-						<p>VARROC</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/gabriel.png" alt="">
-						<p>GABRIEL</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/amaron.png" alt="">
-						<p>AMARON</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/mk.png" alt="">
-						<p>MK</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/limax.png" alt="">
-						<p>LUMAX</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/aroma.png" alt="">
-						<p>AROMA</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/sam.png" alt="">
-						<p>SAM</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/suprajit.png" alt="">
-						<p>SUPRAJIT</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/phoenix.png" alt="">
-						<p>PHOENIX</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/ifb.png" alt="">
-						<p>IFB</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/ultorn.png" alt="">
-						<p>ULTRON</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/ucal.png" alt="">
-						<p>UCAL</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/afkon.png" alt="">
-						<p>AFKON</p>
-					</a>
-					<a href="product_page.html"><img src="assets/images/icon/art.png" alt="">
-						<p>ART</p>
-					</a> --}}
 				</div>
 			</div>
 
@@ -184,8 +129,6 @@
 
 				<button type="button" class="btn">DETAILS</button>
 			</div>
-
-
 
 
 		</div>

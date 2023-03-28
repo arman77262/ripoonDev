@@ -41,8 +41,8 @@
 
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$item->Categories->category_name}}</td>
-                                    <td>{{$item->subcat_name}}</td>
+                                    <td>{{strtoupper($item->Categories->category_name)}}</td>
+                                    <td>{{strtoupper($item->subcat_name)}}</td>
                                     <td>Active</td>
 
                                     <td>
